@@ -31,20 +31,43 @@ h1 {
     margin-top: 100px;
 }
 
-.photographer_section article {
+.photographer_section article, a {
     justify-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-decoration: none;
 }
+
 
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
+    margin-bottom: 0;
 }
 
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.location {
+    color: #901C1C;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.tagline {
+    font-size: 14px;
+    margin: 3px;
+}
+
+.price {
+    font-size: 13px;
+    color: #757575;
+    margin-top: 0;
 }
