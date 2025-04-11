@@ -6,8 +6,11 @@ const data = await reponse.json();
 const url = new URL(document.location).searchParams;
 const idPhotographer = parseInt(url.get("id"));
 console.log(idPhotographer);
+
+// Create two lists for the photographers data and for the media linked to each photographer
 const listPhotographers = data.photographers;
 const mediaLibrary = data.media;
+console.log(listPhotographers);
 
 
 // Get info from ID
@@ -35,7 +38,7 @@ async function getUserLibrary(id, list) {
 
 
 
-
+// In photographer page, display all the media from a specific photographer
 function getUserPosts(mediaList) {
     // Get DOM element
     const sectionPosts = document.querySelector(".posts");
@@ -79,10 +82,12 @@ function getUserPosts(mediaList) {
 
 
 
-// Display of the photographer header
+// In photographer page, display of the photographer header
 async function displayHeader(infoPhotographer) {
+    // Get header div
     const photographerHeader = document.querySelector(".photograph_header");
 
+    // Create left header div
     const leftHeader = document.createElement("div");
     leftHeader.setAttribute("class","photograph_header_left");
     
@@ -98,11 +103,12 @@ async function displayHeader(infoPhotographer) {
     taglineProfile.innerText = infoPhotographer.tagline;
     taglineProfile.setAttribute("class","tagline_header");
 
+    // Add name, location and tagline to the left header div
     leftHeader.appendChild(nameProfile);
     leftHeader.appendChild(locationProfile);
     leftHeader.appendChild(taglineProfile);
 
-
+    // Create middle header div
     const middleHeader = document.createElement("div");
     middleHeader.setAttribute("class","photograph_header_middle");
     const inputContact = document.createElement("button");
@@ -112,6 +118,8 @@ async function displayHeader(infoPhotographer) {
     console.log(inputContact);
     middleHeader.appendChild(inputContact);
 
+
+    // Create right header div with pic
     const rightHeader = document.createElement("div");
     rightHeader.setAttribute("class","photograph_header_right");
     const picture = `assets/photographers/${infoPhotographer.portrait}`;
@@ -119,7 +127,7 @@ async function displayHeader(infoPhotographer) {
     imgProfile.setAttribute("src", picture);
     rightHeader.appendChild(imgProfile);
 
-
+    // Add the three created elements to the header div
     photographerHeader.appendChild(leftHeader);
     photographerHeader.appendChild(middleHeader);
     photographerHeader.appendChild(rightHeader);
